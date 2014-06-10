@@ -10,10 +10,10 @@ module.exports = function() {
             var fileName = format('%s/tmp/%s.txt', __parentDir, key);
 
             var wr = fs.createWriteStream(fileName, { flags: 'a' });
-            wr.write(format('%s\r\n', values.join('\r\n')));
+            wr.write(format('%s', values.join('\n\r')));
             wr.end();
-        });
 
-        context.emit();
-    }
-}
+            context.emit(fileName);
+        });
+    };
+};
