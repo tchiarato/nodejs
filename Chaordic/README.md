@@ -1,6 +1,4 @@
-<h1>Chaordic TestCase </h1>
-Para executar a aplicação siga os passos abaixo:
-
+<h1>Chaordic - Atividade back-end</h1>
 <h2>Instalação dos packages utilizados na aplicação</h2>
 <pre>
     npm install
