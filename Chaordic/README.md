@@ -1,4 +1,4 @@
-<h1>Chaordic TesteCase </h1>
+<h1>Chaordic TestCase </h1>
 Para executar a aplicação siga os passos abaixo:
 
 <h2>Instalação dos packages utilizados na aplicação</h2>
