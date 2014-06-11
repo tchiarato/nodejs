@@ -20,11 +20,11 @@ function Timer(){
 
 var timer = new Timer();
 
-builder.setSpout("files", files);
+builder.setSpout("files", files );
 builder.setBolt("reader", reader).shuffleGrouping("files");
 builder.setBolt("reduce", reduce).shuffleGrouping("reader");
-builder.setBolt("map", map).shuffleGrouping("reduce");
-builder.setBolt("timer", timer).shuffleGrouping("map");
+builder.setBolt("map"   , map   ).shuffleGrouping("reduce");
+builder.setBolt("timer" , timer ).shuffleGrouping("map");
 
 var topology = builder.createTopology();
 topology.start();
