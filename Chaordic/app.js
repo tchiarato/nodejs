@@ -14,7 +14,7 @@ var builder = ss.createTopologyBuilder();
 function Timer(){
     this.start = Date.now();
     this.process = function(data, context) {
-        console.log('finished: ' + ((Date.now() - this.start)/1000).toFixed(1));
+        console.log('bolt finished: ' + ((Date.now() - this.start)/1000).toFixed(1));
     }
 }
 

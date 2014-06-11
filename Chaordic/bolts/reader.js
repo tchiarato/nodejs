@@ -10,12 +10,14 @@ module.exports = function() {
             var lines = data.split('\n');
 
             lines.forEach(function(item) {
-                var user_id = item.substr(item.indexOf('userid=') + 7, 36);
-                var log = {
-                    user_id: user_id,
-                    log: item
+                if (item !== "") {
+                    var user_id = item.substr(item.indexOf('userid=') + 7, 36);
+                    var log = {
+                        user_id: user_id,
+                        log: item
+                    }
+                    logs.push(log);
                 }
-                logs.push(log);
             }); 
 
             context.emit(logs);
