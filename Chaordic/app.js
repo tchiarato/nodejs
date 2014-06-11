@@ -1,15 +1,13 @@
 var ss      = require('simplestorm'),
-    Spout   = require('./controller/spout'),
-    Reader  = require('./controller/reader'),
-    Reduce  = require('./controller/reduce'),
-    Map     = require('./controller/map'),
-    Sort    = require('./controller/sort');
+    Files   = require('./spouts/files'),
+    Reader  = require('./bolts/reader'),
+    Reduce  = require('./bolts/reduce'),
+    Map     = require('./bolts/map');
 
-var spout  = new Spout(),
+var files  = new Files(),
     reader = new Reader(),
     reduce = new Reduce(),
-    map    = new Map(),
-    sort   = new Sort();
+    map    = new Map();
 
 var builder = ss.createTopologyBuilder();
 
@@ -22,12 +20,11 @@ function Timer(){
 
 var timer = new Timer();
 
-builder.setSpout("spout", spout);
-builder.setBolt("reader", reader).shuffleGrouping("spout");
+builder.setSpout("files", files);
+builder.setBolt("reader", reader).shuffleGrouping("files");
 builder.setBolt("reduce", reduce).shuffleGrouping("reader");
 builder.setBolt("map", map).shuffleGrouping("reduce");
-builder.setBolt("sort", sort).shuffleGrouping("map");
-builder.setBolt("timer", timer).shuffleGrouping("sort");;
+builder.setBolt("timer", timer).shuffleGrouping("map");;
 
 var topology = builder.createTopology();
 topology.start();
