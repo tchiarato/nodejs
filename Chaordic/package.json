@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "simplestorm": "0.0.4",
-    "underscore": "^1.6.0"
+    "underscore": "^1.6.0",
+    "filequeue": "^0.5.0",
+    "memwatch": "^0.2.2"
   }
 }

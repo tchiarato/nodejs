@@ -7,9 +7,9 @@ module.exports = function() {
         
         fs.readdir('./data/', function(err, files) {
             for (var i = files.length - 1; i >= 0; i--) {
-                if (files[i] !== '.DS_Store') {
-                    var path = __parentDir + '/data/' + files[i];
-                    context.emit(path);
+                var file = files[i];
+                if (file !== '.DS_Store') {
+                    context.emit(__parentDir + '/data/' + file);
                 }
             }
         });

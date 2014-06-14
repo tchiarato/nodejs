@@ -11,20 +11,12 @@ var files  = new Files(),
 
 var builder = ss.createTopologyBuilder();
 
-function Timer(){
-    this.start = Date.now();
-    this.process = function(data, context) {
-        console.log('bolt finished: ' + ((Date.now() - this.start)/1000).toFixed(1));
-    }
-}
-
-var timer = new Timer();
-
 builder.setSpout("files", files );
 builder.setBolt("reader", reader).shuffleGrouping("files");
 builder.setBolt("reduce", reduce).shuffleGrouping("reader");
 builder.setBolt("map"   , map   ).shuffleGrouping("reduce");
-builder.setBolt("timer" , timer ).shuffleGrouping("map");
 
 var topology = builder.createTopology();
 topology.start();
+
+console.log("running ...");
