@@ -22,10 +22,10 @@ function DataReader() {
 
         var command = this.commands.shift();
 
-        if (this.executingFiles < 2) {
+        if (this.executingFiles < config.maxExecutingFiles) {
             this.executingFiles++;
 
-            var fq   = new FileQueue(config.limit),
+            var fq   = new FileQueue(config.OSlimit),
                 last = "";
 
             // Stream file

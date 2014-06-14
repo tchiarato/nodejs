@@ -1,3 +1,4 @@
 {
-    "limit": "200"
+    "OSlimit"          : "200",
+    "maxExecutingFiles": "2"
 }

@@ -7,7 +7,7 @@ var format      = require('util').format,
 module.exports = function() {
     this.process = function(data, context) {
         _.map(data, function(values, key) {
-            var fq = new FileQueue(config.limit);
+            var fq = new FileQueue(config.OSlimit);
 
             var __parentDir = path.dirname(process.mainModule.filename);
             var fileName = format('%s/tmp/%s.txt', __parentDir, key);
