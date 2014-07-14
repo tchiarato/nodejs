@@ -1,4 +1,4 @@
-<h1>Chaordic - Atividade back-end</h1>
+<h1>Atividade back-end</h1>
 <h2>Instalação dos packages utilizados na aplicação</h2>
 <pre>
     npm install
